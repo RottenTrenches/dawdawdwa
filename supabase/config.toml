@@ -1,0 +1,10 @@
+project_id = "fzqbzfjvrmlqxkyddcvq"
+
+[functions.import-kolscan-leaderboard]
+verify_jwt = false
+
+[functions.update-kol-names]
+verify_jwt = false
+
+[functions.fix-twitter-handles]
+verify_jwt = false
