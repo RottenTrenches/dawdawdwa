@@ -1,0 +1,405 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BRAINROT DESIGN SYSTEM ===== */
+/* Maximum chaos. Pure overstimulation. No cap fr fr 💀 */
+
+@layer base {
+  :root {
+    /* BRAINROT DARK THEME - DEFAULT */
+    --background: 280 50% 3%;
+    --foreground: 60 100% 95%;
+
+    --card: 280 40% 6%;
+    --card-foreground: 60 100% 95%;
+
+    --popover: 280 40% 8%;
+    --popover-foreground: 60 100% 95%;
+
+    /* NEON TOXIC GREEN */
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    /* HOT PINK */
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 280 30% 15%;
+    --muted-foreground: 280 10% 60%;
+
+    /* ELECTRIC YELLOW */
+    --accent: 50 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    /* BLOOD RED */
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 280 50% 20%;
+    --input: 280 40% 12%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Brainrot special colors */
+    --neon-cyan: 180 100% 50%;
+    --neon-orange: 30 100% 50%;
+    --neon-purple: 280 100% 60%;
+    --skull-white: 0 0% 95%;
+    --ohio-blue: 200 100% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 280 50% 4%;
+    --sidebar-foreground: 60 100% 95%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 320 100% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 280 50% 20%;
+    --sidebar-ring: 120 100% 50%;
+  }
+
+  .light {
+    /* BRAINROT LIGHT THEME - STILL CHAOTIC */
+    --background: 60 50% 95%;
+    --foreground: 280 50% 10%;
+
+    --card: 60 30% 98%;
+    --card-foreground: 280 50% 10%;
+
+    --popover: 60 30% 100%;
+    --popover-foreground: 280 50% 10%;
+
+    --primary: 120 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 320 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 60 20% 90%;
+    --muted-foreground: 280 20% 40%;
+
+    --accent: 50 100% 45%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 280 20% 80%;
+    --input: 60 20% 92%;
+    --ring: 120 100% 40%;
+
+    --sidebar-background: 60 30% 98%;
+    --sidebar-foreground: 280 50% 10%;
+    --sidebar-primary: 120 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 320 100% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 280 20% 80%;
+    --sidebar-ring: 120 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Press Start 2P', 'Comic Neue', cursive;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Chaotic selection */
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer components {
+  /* BRAINROT CARD - Subtle glow */
+  .brainrot-card {
+    @apply bg-card border border-primary/30 rounded-lg transition-all duration-300;
+    box-shadow: 
+      0 0 8px hsl(var(--primary) / 0.15),
+      0 0 16px hsl(var(--secondary) / 0.1);
+    animation: borderPulse 4s ease-in-out infinite;
+  }
+
+  .brainrot-card:hover {
+    @apply border-primary/50;
+    box-shadow: 
+      0 0 12px hsl(var(--primary) / 0.25),
+      0 0 24px hsl(var(--secondary) / 0.15);
+    transform: scale(1.01);
+  }
+
+  /* Glass Card with subtle neon */
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-primary/20 rounded-xl;
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.1);
+  }
+
+  /* Floating Navigation - Subtle glow */
+  .floating-nav {
+    @apply fixed bottom-6 left-1/2 -translate-x-1/2 z-50;
+    @apply bg-card/90 backdrop-blur-xl border border-primary/30 rounded-2xl;
+    @apply px-2 py-2;
+    box-shadow: 
+      0 0 15px hsl(var(--primary) / 0.2),
+      0 0 30px hsl(var(--secondary) / 0.1);
+  }
+
+  /* BRAINROT BUTTON - Subtle energy */
+  .brainrot-btn {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-bold rounded-lg transition-all duration-300;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+    text-shadow: 1px 1px 0 hsl(var(--background));
+  }
+
+  .brainrot-btn:hover {
+    animation: gradientShift 2s ease infinite;
+    box-shadow: 
+      0 0 15px hsl(var(--primary) / 0.4),
+      0 0 30px hsl(var(--secondary) / 0.2);
+  }
+
+  /* Stat Card */
+  .stat-card {
+    @apply brainrot-card p-4;
+  }
+
+  /* PIXEL NAV - Subtle glow */
+  .pixel-nav {
+    @apply bg-card/90 backdrop-blur-xl border-b border-primary/30;
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.15);
+  }
+
+  /* Scrollbar - NEON */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+    border: 2px solid hsl(var(--primary) / 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--secondary)));
+    border-radius: 6px;
+    border: 2px solid hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--primary)));
+  }
+}
+
+@layer utilities {
+  /* RAINBOW TEXT - Maximum brainrot */
+  .text-rainbow {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--destructive)) 0%,
+      hsl(var(--accent)) 20%,
+      hsl(var(--primary)) 40%,
+      hsl(180 100% 50%) 60%,
+      hsl(var(--secondary)) 80%,
+      hsl(var(--destructive)) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 3s linear infinite;
+  }
+
+  /* GLITCH TEXT */
+  .glitch-text {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 hsl(var(--secondary));
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 hsl(var(--primary));
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim2 2s infinite linear alternate-reverse;
+  }
+
+  /* Text gradient - neon style */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.4);
+    text-shadow: 0 0 10px hsl(var(--primary));
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.6), 0 0 40px hsl(var(--secondary) / 0.4);
+    text-shadow: 0 0 10px hsl(var(--secondary));
+  }
+
+  /* Neon text shadow */
+  .neon-text {
+    text-shadow: 
+      0 0 5px hsl(var(--primary)),
+      0 0 10px hsl(var(--primary)),
+      0 0 20px hsl(var(--primary)),
+      0 0 40px hsl(var(--primary));
+  }
+
+  .neon-pink {
+    text-shadow: 
+      0 0 5px hsl(var(--secondary)),
+      0 0 10px hsl(var(--secondary)),
+      0 0 20px hsl(var(--secondary)),
+      0 0 40px hsl(var(--secondary));
+  }
+
+  /* ANIMATIONS */
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes borderPulse {
+    0%, 100% { border-color: hsl(var(--primary) / 0.3); }
+    50% { border-color: hsl(var(--primary) / 0.5); }
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  @keyframes glitch-anim {
+    0% { clip: rect(30px, 9999px, 10px, 0); }
+    25% { clip: rect(50px, 9999px, 80px, 0); }
+    50% { clip: rect(20px, 9999px, 60px, 0); }
+    75% { clip: rect(70px, 9999px, 40px, 0); }
+    100% { clip: rect(10px, 9999px, 90px, 0); }
+  }
+
+  @keyframes glitch-anim2 {
+    0% { clip: rect(60px, 9999px, 40px, 0); }
+    25% { clip: rect(10px, 9999px, 70px, 0); }
+    50% { clip: rect(80px, 9999px, 20px, 0); }
+    75% { clip: rect(40px, 9999px, 90px, 0); }
+    100% { clip: rect(50px, 9999px, 30px, 0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-15px) rotate(1deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--secondary) / 0.2); 
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--secondary) / 0.4); 
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px) rotate(-1deg); }
+    20%, 40%, 60%, 80% { transform: translateX(3px) rotate(1deg); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes bounce-chaos {
+    0%, 100% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-20px) scale(1.1); }
+    50% { transform: translateY(-10px) scale(0.95); }
+    75% { transform: translateY(-15px) scale(1.05); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.3s ease-in-out;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 10s linear infinite;
+  }
+
+  .animate-bounce-chaos {
+    animation: bounce-chaos 2s ease-in-out infinite;
+  }
+
+  /* BRAINROT FONTS */
+  .font-brainrot {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.05em;
+  }
+
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .font-marker {
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  .font-comic {
+    font-family: 'Comic Neue', cursive;
+  }
+}
